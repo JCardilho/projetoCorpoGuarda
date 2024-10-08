@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
+import  {Home}  from "./page/home.jsx";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ export const Login = () => {
   };
 
   return (
-    <div className=" m-0  font-poppins box-border bg-neutral-100 p-4 rounded-xl border border-neutral-300">
+    <div className=" m-0 min-h-80 min-w-96  font-poppins box-border bg-neutral-100 p-4 rounded-xl border border-neutral-300">
       <form onSubmit={handleSubmit}>
         {/*
             onSubmit = onEnviar
@@ -23,38 +24,51 @@ export const Login = () => {
             seja clicando no botão de "enviar" ou apertando enter, 
             ele vai charmar a função "handleSubmit"
         */}
-        <h1 className=" font-bold text-center text-lg  ">Acesse o Sistema </h1>
-        <div className="relative h-1/2 w-1/2 my-6">
-          <input className="p-1"           
+        <h1 className=" font-bold text-center text-lg mt-6 ">
+          Acesse o Sistema{" "}
+        </h1>
+        <div className="relative h-1/2 w-full my-6">
+          <input
+            className="p-1 rounded-xl w-full"
             type="text"
             placeholder="Usuário"
             onChange={(e) => {
               setUsername(e.target.value);
             }}
           />
-          <FaUser className="absolute right-1/2 top-1/2 -translate-y-2 translate-x-32" />
+          <FaUser className="absolute right-2 top-1/2 -translate-y-2 " />
         </div>
 
-        <div className="relative h-1/2 w-1/2 my-6">
-          <input className="p-1"
+        <div className="relative h-1/2 w-full my-6">
+          <input
+            className="p-1 rounded-xl w-full flex-auto"
             type="password"
             placeholder="Senha"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <FaLock className="absolute right-1/2 top-1/2 -translate-y-2 translate-x-32" />
+          <FaLock className="absolute right-2 top-1/2 -translate-y-2 " />
         </div>
-        <div className="recall-forget">
+        <div className="flex justify-between gap-6 text-xs text-blue-700 mt-2 mb-8">
           <label>
             <input type="checkbox" />
             Lembre de mim
           </label>
-          <a href="#">Esqueceu a senha?</a>
+          <a className="  hover:font-bold" href="#">
+            Esqueceu a senha?
+          </a>
         </div>
-        <button>Entrar</button>
-        <div className="signup-link">
-          Não tem uma conta? <a href="#">Registrar</a>
+        <button className=" text-center border
+         border-neutral-400 mt-2 rounded-xl 
+         w-full h-1/2 hover:font-bold" >
+          Entrar
+        </button>
+        <div className="flex justify-end gap-4 text-xs mt-4  mb-8  text-blue-700 ">
+          Não tem uma conta?{" "}
+          <a className="hover:font-bold "href={<Home/>}>
+            Registrar
+          </a>
         </div>
       </form>
     </div>
